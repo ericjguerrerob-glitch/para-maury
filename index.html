@@ -1,12 +1,267 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Maury</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Una Carta de Hogwarts para Maury: Un Capítulo Especial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gryffindor: {
+                            red: '#740001',
+                            darkRed: '#4A0000',
+                            gold: '#D3A625',
+                           parchment: '#F5E6CA',
+                            parchmentDark: '#E6D3B1',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel Decorative', 'Cinzel', 'serif'],
+                        sans: ['Fauna One', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Wizarding Aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700;900&family=Fauna+One&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Wizarding Gryffindor Background & Ambient Glow */
+        body {
+            background-color: #0b0a10;
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(116, 0, 1, 0.35) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(211, 166, 37, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(74, 0, 0, 0.5) 0%, transparent 60%);
+            color: #2b1f1d;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Parchment Scroll Texture Simulation */
+        .parchment-bg {
+            background: #f4e8c1;
+            background-image: 
+                radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(210,180,140,0.4) 100%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+            box-shadow: 0 0 50px rgba(0,0,0,0.8), inset 0 0 40px rgba(116,0,1,0.25);
+            border: 2px solid #d3a625;
+        }
+
+        /* Pure CSS Magical Animations */
+        @keyframes floatCandle {
+            0%, 100% { transform: translateY(0px) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        @keyframes flameFlicker {
+            0%, 100% { opacity: 0.9; transform: scale(1); filter: drop-shadow(0 0 8px #ffaa00); }
+            50% { opacity: 0.6; transform: scale(0.85); filter: drop-shadow(0 0 3px #ff7700); }
+        }
+
+        @keyframes spellGlow {
+            0%, 100% { text-shadow: 0 0 10px #d3a625, 0 0 20px #d3a625, 0 0 30px #740001; }
+            50% { text-shadow: 0 0 20px #f3e5ab, 0 0 35px #d3a625, 0 0 50px #ffaa00; }
+        }
+
+        @keyframes shimmerGold {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .animate-candle {
+            animation: floatCandle 5s ease-in-out infinite;
+        }
+
+        .animate-flame {
+            animation: flameFlicker 1.5s ease-in-out infinite alternate;
+        }
+
+        .magical-title-glow {
+            animation: spellGlow 3.5s ease-in-out infinite;
+        }
+
+        .gold-shimmer-text {
+            background: linear-gradient(90deg, #aa7c11 0%, #f3e5ab 50%, #aa7c11 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmerGold 4s linear infinite;
+        }
+
+        /* Custom Wax Seal Style */
+        .wax-seal {
+            background: radial-gradient(circle at 30% 30%, #a81c1c, #4a0000);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        /* Handwritten Font for Signature */
+        .script-font {
+            font-family: 'Pinyon Script', cursive;
+        }
+    </style>
 </head>
-<body>
-    <h1>Para Maury</h1>
+<body class="font-sans antialiased py-8 px-4 flex flex-col items-center justify-center min-h-screen relative">
+
+    <!-- Floating Magical Floating Candles Effect (Pure CSS) -->
+    <div class="fixed top-8 left-6 sm:left-16 z-0 animate-candle hidden sm:block">
+        <div class="w-3 h-16 bg-gradient-to-b from-amber-100 to-amber-200 rounded-sm shadow-lg relative opacity-80">
+            <div class="w-2 h-3 bg-gradient-to-t from-amber-500 to-yellow-200 rounded-full mx-auto -mt-2 animate-flame"></div>
+        </div>
+    </div>
+    <div class="fixed top-20 right-8 sm:right-20 z-0 animate-candle hidden sm:block" style="animation-delay: -2s;">
+        <div class="w-3 h-20 bg-gradient-to-b from-amber-100 to-amber-200 rounded-sm shadow-lg relative opacity-80">
+            <div class="w-2 h-3 bg-gradient-to-t from-amber-500 to-yellow-200 rounded-full mx-auto -mt-2 animate-flame"></div>
+        </div>
+    </div>
+    <div class="fixed bottom-16 left-12 z-0 animate-candle hidden md:block" style="animation-delay: -3.5s;">
+        <div class="w-3 h-14 bg-gradient-to-b from-amber-100 to-amber-200 rounded-sm shadow-lg relative opacity-70">
+            <div class="w-2 h-3 bg-gradient-to-t from-amber-500 to-yellow-200 rounded-full mx-auto -mt-2 animate-flame"></div>
+        </div>
+    </div>
+
+    <!-- Main Parchment Container -->
+    <main class="relative z-10 max-w-3xl w-full parchment-bg rounded-xl p-6 sm:p-12 my-6 my-auto text-slate-900 border-4 border-gryffindor-gold/80 shadow-2xl">
+        
+        <!-- Gryffindor Crest & Header -->
+        <header class="text-center space-y-4 border-b-2 border-gryffindor-red/20 pb-8">
+            <div class="inline-block relative">
+                <!-- Gryffindor Lion Crest Icon -->
+                <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full bg-gryffindor-red flex items-center justify-center border-4 border-gryffindor-gold shadow-xl transform hover:scale-105 transition-transform duration-500">
+                    <i class="fa-solid fa-shield-cat text-gryffindor-gold text-4xl sm:text-5xl"></i>
+                </div>
+                <!-- Sparkle Accents -->
+                <i class="fa-solid fa-sparkles text-gryffindor-gold text-xl absolute -top-2 -right-2 animate-pulse"></i>
+            </div>
+
+            <!-- CREATIVE Gryffindor TITLE -->
+            <div class="space-y-2">
+                <p class="font-serif text-xs sm:text-sm tracking-[0.3em] uppercase text-gryffindor-red font-bold">
+                    Escuela Hogwarts de Magia y Hechicería &bull; Casa Gryffindor
+                </p>
+                <h1 class="font-serif text-3xl sm:text-5xl font-black text-gryffindor-red tracking-tight leading-tight magical-title-glow">
+                    Una Invitación Mágica para Maury
+                </h1>
+                <p class="font-serif italic text-sm sm:text-base text-amber-900 font-semibold">
+                    "Para la persona con el valor, la mente y el corazón de una verdadera Gryffindor"
+                </p>
+            </div>
+        </header>
+
+        <!-- MAIN LETTER CONTENT -->
+        <article class="py-8 space-y-8 text-slate-800 leading-relaxed text-base sm:text-lg">
+
+            <!-- Salutation -->
+            <div class="flex items-center justify-between border-b border-amber-900/10 pb-3">
+                <p class="font-serif font-bold text-xl text-gryffindor-red">
+                    Querida Maury,
+                </p>
+                <span class="text-xs font-serif italic text-amber-800 bg-amber-200/50 px-3 py-1 rounded-full border border-amber-800/20">
+                    <i class="fa-solid fa-scroll mr-1"></i> Entrega Especial Gryffindor
+                </span>
+            </div>
+
+            <!-- Impactful Paragraphs highlighting Gryffindor qualities -->
+            <div class="space-y-5">
+                <p>
+                    Dicen los antiguos libros del Gran Comedor que en la casa de <strong>Gryffindor</strong> habitan los corazones más valientes, leales y luminosos. Sin embargo, no hace falta buscar en las leyendas de Hogwarts para encontrar a la persona más extraordinaria: eres tú, <strong class="text-gryffindor-red">la estudiante más brillante de esta época</strong>.
+                </p>
+
+                <!-- Highlight Box 1: Intelligence & Humor -->
+                <div class="bg-amber-100/60 rounded-lg p-5 border-l-4 border-gryffindor-gold shadow-sm space-y-2">
+                    <div class="flex items-center gap-2 font-serif font-bold text-gryffindor-red text-base sm:text-lg">
+                        <i class="fa-solid fa-graduation-cap text-gryffindor-gold"></i>
+                        <span>Ingenio Increíble & Chispa Única</span>
+                    </div>
+                    <p class="text-sm sm:text-base italic text-slate-700">
+                        Destacas por ser <strong class="text-gryffindor-red">extraordinariamente inteligente</strong>, con una agudeza mental que asombra a cualquiera a tu alrededor. Pero lo que realmente te vuelve inolvidable es tu espíritu alegre y profundamente <strong class="text-gryffindor-red">divertido</strong>: tienes ese don único de llenar cualquier espacio con risas y momentos inolvidables.
+                    </p>
+                </div>
+
+                <!-- Highlight Box 2: Tender Heart & Smile -->
+                <div class="bg-amber-100/60 rounded-lg p-5 border-l-4 border-gryffindor-red shadow-sm space-y-2">
+                    <div class="flex items-center gap-2 font-serif font-bold text-gryffindor-red text-base sm:text-lg">
+                        <i class="fa-solid fa-wand-magic-sparkles text-amber-600"></i>
+                        <span>Un Corazón Dulce y una Sonrisa Radiante</span>
+                    </div>
+                    <p class="text-sm sm:text-base italic text-slate-700">
+                        Detrás de tu gran astucia y tu valentía habita un lado <strong class="text-gryffindor-red">dulce y tierno</strong> que conquista a todos. Y tu sonrisa... <strong class="text-gryffindor-red">tu linda sonrisa ilumina más que un encantamiento <span class="not-italic font-mono text-xs uppercase bg-amber-200 px-1.5 py-0.5 rounded text-amber-900 border border-amber-400">Lumos Maxima</span></strong> en la noche más oscura.
+                    </p>
+                </div>
+
+                <!-- The Flowers Acknowledgment (Post-Delivery Message) -->
+                <div class="text-center py-5 px-4 bg-gradient-to-r from-amber-200/50 via-amber-100/90 to-amber-200/50 rounded-xl border border-gryffindor-gold/50 shadow-sm space-y-2">
+                    <i class="fa-solid fa-seedling text-2xl text-gryffindor-gold animate-bounce"></i>
+                    <p class="font-serif text-lg font-bold text-gryffindor-red">
+                        Las Flores que Acabas de Recibir...
+                    </p>
+                    <p class="text-sm sm:text-base text-slate-700 max-w-lg mx-auto">
+                        Espero que te hayan sacado una gran sonrisa, porque son solo un pequeño reflejo de la belleza, la luz y la alegría que tú le regalas al mundo todos los días. Sin embargo, esas flores eran solo el primer paso de este detalle mágico...
+                    </p>
+                </div>
+
+                <p class="text-center italic font-semibold text-amber-900">
+                    Porque la mejor parte de esta sorpresa aún no ha terminado.
+                </p>
+            </div>
+
+            <!-- The Invitation -->
+            <div class="space-y-3 text-center pt-2">
+                <h2 class="font-serif text-2xl font-bold text-gryffindor-red">
+                    ¿Aceptas Salir Conmigo?
+                </h2>
+                <p class="text-base text-slate-700">
+                    Me encantaría invitarte a salir a compartir un momento especial, disfrutar de unas buenas risas y seguir compartiendo la bonita amistad que hemos construido.
+                </p>
+            </div>
+
+        </article>
+
+        <!-- WAX SEAL & ACTION SECTION -->
+        <footer class="pt-6 border-t-2 border-gryffindor-red/20 text-center space-y-6">
+            
+            <!-- WhatsApp RSVP Button -->
+            <div class="space-y-3">
+                <a href="https://wa.me/584126014134?text=%C2%A1Accio%20Invitaci%C3%B3n!%20%F0%9F%A6%81%E2%9C%A8%20Hola%2C%20me%20encantaron%20much%C3%ADsimo%20las%20flores%20%F0%9F%8C%B9%20y%20la%20carta%20m%C3%A1gica.%20%C2%A1Acepto%20con%20gusto%20la%20invitaci%C3%B3n%20para%20salir!" 
+                   target="_blank" 
+                   class="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-gryffindor-red to-gryffindor-darkRed hover:from-amber-800 hover:to-gryffindor-red text-gryffindor-goldLight font-serif font-bold text-base sm:text-xl rounded-xl shadow-2xl border-2 border-gryffindor-gold hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 group">
+                    <i class="fa-brands fa-whatsapp text-2xl text-emerald-400 group-hover:scale-125 transition-transform duration-300"></i>
+                    <span>Aceptar la Invitación Mágica 🦁✨</span>
+                </a>
+                <p class="text-xs text-amber-900/70 font-serif italic">
+                    Haz clic aquí para responder por lechuza instantánea a través de WhatsApp
+                </p>
+            </div>
+
+            <!-- Wax Seal and Signature -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-amber-900/10">
+                <div class="text-left">
+                    <p class="text-xs font-serif uppercase tracking-widest text-amber-900/80">Sello Oficial Gryffindor</p>
+                    <p class="script-font text-3xl font-bold text-gryffindor-red">"Honor, valor y momentos inolvidables"</p>
+                </div>
+
+                <!-- Red Wax Seal with M logo -->
+                <div class="wax-seal w-16 h-16 rounded-full flex items-center justify-center text-gryffindor-gold text-xl font-bold font-serif shadow-lg transform rotate-12 hover:rotate-0 transition-transform duration-300">
+                    <span class="border border-gryffindor-gold/40 rounded-full w-12 h-12 flex items-center justify-center">M</span>
+                </div>
+            </div>
+
+        </footer>
+
+    </main>
+
+    <!-- Bottom Decorative Note -->
+    <div class="relative z-10 text-center py-4 text-xs font-serif text-amber-200/60 tracking-widest">
+        HOGWARTS SCHOOL OF WITCHCRAFT AND WIZARDRY &bull; ESPECIALMENTE PARA MAURY
+    </div>
+
 </body>
-</html>
+</html>        
